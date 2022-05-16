@@ -4,7 +4,7 @@ const Schedule = () => {
   const [inpval, setINP] = useState({
     course: "",
     trainer_name: "",
-    date: new Date(),
+    //date: new Date(),
     starting_time: 0,
     ending_time: 0,
     fee_amount: 0,
@@ -39,7 +39,7 @@ const Schedule = () => {
 
     console.log(inpval)
 
-    const res = await fetch("/schedule", {
+    const res = await fetch("/api/schedule", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const Schedule = () => {
         <div className="mb-3 col-lg-6 col-md-6 col-12">
           <label for="validationTooltip02">Start time</label>
           <input
-            type="time"
+            type="text"
             className="form-control"
             value={inpval.starting_time}
             name="starting_time"
@@ -127,7 +127,7 @@ const Schedule = () => {
         <div className="mb-3 col-lg-6 col-md-6 col-12">
           <label for="validationTooltip02">End time</label>
           <input
-            type="time"
+            type="text"
             className="form-control"
             name="ending_time"
             value={inpval.ending_time}
