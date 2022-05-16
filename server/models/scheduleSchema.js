@@ -15,13 +15,11 @@ const scheduleSchema = new mongoose.Schema({
         required: true
     },
     starting_time:{
-        type: Date,
-        default: Date.now,
+        type:String,
         required: true
     },
     ending_time: {
-        type: Date,
-        default: Date.now,
+        type:String,
         required: true
     },
     fee_amount: {
@@ -39,9 +37,9 @@ const scheduleSchema = new mongoose.Schema({
 })
 
 
-const Schedule = new mongoose.model("Schedule", scheduleSchema )
+module.exports = mongoose.model("Schedule", scheduleSchema );
 
-module.exports = Schedule;
+
 
 
 
