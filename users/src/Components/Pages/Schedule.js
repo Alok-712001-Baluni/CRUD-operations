@@ -4,7 +4,7 @@ const Schedule = () => {
   const [inpval, setINP] = useState({
     course: "",
     trainer_name: "",
-    date: 0,
+    date: new Date(),
     starting_time: 0,
     ending_time: 0,
     fee_amount: 0,
