@@ -4,12 +4,12 @@ const Schedule = () => {
   const [inpval, setINP] = useState({
     course: "",
     trainer_name: "",
-    date: "",
-    starting_time: "",
-    ending_time: "",
-    fee_amount: "",
-    disc_amount: "",
-    batch_size: "",
+    date: 0,
+    starting_time: 0,
+    ending_time: 0,
+    fee_amount: 0,
+    disc_amount: 0,
+    batch_size: 0,
   });
 
   const setData = (e) => {
