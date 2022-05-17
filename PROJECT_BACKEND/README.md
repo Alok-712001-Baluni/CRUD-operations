@@ -1,0 +1,1 @@
+Create a .env file and add DATABASE_URL = "YOUR MONGODB LINK HERE".
