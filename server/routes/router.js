@@ -28,6 +28,7 @@ router.post('/schedule', async (req, res) => {
   }
 })
 
+//get all
 router.get('/getAll', async(req, res) => {
     try{
         const data = await ScheduleModel.find();
@@ -35,6 +36,20 @@ router.get('/getAll', async(req, res) => {
     }
     catch(error){
         res.status(500).json({message: error.message})
+    }
+})
+
+
+
+//delete by id
+router.delete('/delete/:id', async(req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await ScheduleModel.findByIdAndDelete(id)
+        res.send(`Training with ID: ${data._id} has been deleted..`)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
     }
 })
 
