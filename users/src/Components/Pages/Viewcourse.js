@@ -3,17 +3,17 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import "./Details.css";
 import { useParams, NavLink } from "react-router-dom";
-const Details = () => {
+const Viewcourse = () => {
 
 	const {id} = useParams("")
 	console.log(id)
-	const [getScheduleData, setScheduleData] = useState([])
-	console.log(getScheduleData)
+	const [getCourseData, setCourseData] = useState([])
+	console.log(getCourseData)
 
-	const getSchedule = async (e) => {
+	const getCourse = async (e) => {
  
 
-		const res = await fetch(`/getSchedule/${id}`, {
+		const res = await fetch(`/getCourse/${id}`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -28,68 +28,63 @@ const Details = () => {
 		if(res.status === 422 || !data){
 				console.log('error')
 		}else{
-				setScheduleData(data)
-			console.log("get schedule")
+				setCourseData(data)
+			console.log("get individual Course")
 		}
 	}
 	
 useEffect(() => {
-	getSchedule()
+	getCourse()
 }, [])
 
-const deleteSchedule = async(id)=>{
-	const res2 = await fetch(`/deleteSchedule/${id}`,{
+const deleteCourse = async(id)=>{
+	const res2 = await fetch(`/deleteCourse/${id}`,{
 		method: "DELETE",
 		headers: {
 			"Content-Type" : "application/json"
 		}
 	})
 
-	const deletedata = await res2.json()
-	console.log(deletedata)
+	const deletedCourse = await res2.json()
+	console.log(deletedCourse)
 
-	if(res2.status === 422 || !deletedata){
+	if(res2.status === 422 || !deletedCourse){
 		console.log("error")
 	} else{
-		console.log("user deleted")
+		console.log("Course is deleted")
 	} 
 }
 
 
 	return (
 		<div className="container mt-4">
-			<h1 style={{ fontWeight: 400 }}>{getScheduleData.course}</h1>
+			<h1 style={{ fontWeight: 400 }}>{getCourseData.course}</h1>
 			<Card sx={{ maxWidth: 600 }}>
 				<CardContent>
 					<div className="row">
 						<div className="left_view col-lg-6 col-md-6 col-12 ">
 							<h3 className="mt-3" style={{ fontWeight: 400 }}>
-								Trainer name:<span>{getScheduleData.trainer_name}</span>
+								Description:<span>{getCourseData.desc}</span>
 							</h3>
 							<p className="mt-3" style={{ fontWeight: 400 }}>
-								Date(s): <span>{getScheduleData.date}</span>
+								Category: <span>{getCourseData.cat}</span>
 							</p>
 							<p className="mt-3" style={{ fontWeight: 400 }}>
-								Start time: <span>{getScheduleData.starting_time}</span>
+								Intended audience: <span>{getCourseData.int_aud}</span>
 							</p>
 							<p className="mt-3" style={{ fontWeight: 400 }}>
-								End time: <span>{getScheduleData.ending_time}</span>
+								Benefits: <span>{getCourseData.benefits}</span>
 							</p>
 							<p className="mt-3" style={{ fontWeight: 400 }}>
-								Fee Amount: <span>{getScheduleData.fee_amount}</span>
+								Trainer name: <span>{getCourseData.trainer_name}</span>
 							</p>
-							<p className="mt-3" style={{ fontWeight: 400 }}>
-								Discount amount: <span>{getScheduleData.disc_amount}</span>
-							</p>
-							<p className="mt-3" style={{ fontWeight: 400 }}>
-								batch size: <span>{getScheduleData.batch_size}</span>
-							</p>
+
 						</div>
 						<div className="right_view col-lg-6 col-md-6 col-12">
-							<NavLink to={`/edit/${getScheduleData._id}`} ><button className="btn btn-primary mx-2">
+							<NavLink to={`/updateCourse/${getCourseData._id}`} ><button className="btn btn-primary mx-2">
 								<i className="fas fa-pen"></i>
 							</button></NavLink>
-							<button className="btn btn-danger" onClick={() => deleteSchedule(getScheduleData._id)}>
+							<button className="btn btn-danger" onClick={() => deleteCourse(getCourseData._id)}>
 								<i className="fas fa-trash"></i>
 							</button>
 						</div>
@@ -100,4 +95,4 @@ const deleteSchedule = async(id)=>{
 	);
 };
 
-export default Details;
+export default Viewcourse;

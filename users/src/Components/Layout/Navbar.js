@@ -20,9 +20,9 @@ return (
       <li className="nav-item">
         <NavLink className="nav-link" exact to="/trainerdetails">Trainer details</NavLink>
       </li>
-      <li className="nav-item">
+      {/* <li className="nav-item">
         <NavLink className="nav-link" exact to="/schedule">Create scehdule</NavLink>
-      </li>
+      </li> */}
 
     </ul>
   </div>

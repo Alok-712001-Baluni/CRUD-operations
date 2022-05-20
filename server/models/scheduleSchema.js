@@ -15,11 +15,19 @@ const scheduleSchema = new mongoose.Schema({
         required: true
     },
     starting_time:{
+<<<<<<< HEAD
+        type: String,
+        required: true
+    },
+    ending_time: {
+        type: String,
+=======
         type:String,
         required: true
     },
     ending_time: {
         type:String,
+>>>>>>> 6fb735daa0973b42ee7e7e5071aed74a5b25e880
         required: true
     },
     fee_amount: {

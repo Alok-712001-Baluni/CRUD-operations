@@ -7,7 +7,7 @@ mongoose.connect(DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=>{
-    console.log("DB started")
+    console.log("Connected to the database.....")
 }).catch((error)=>{
     console.log(error)
 })

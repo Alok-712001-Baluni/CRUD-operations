@@ -4,9 +4,15 @@ const Schedule = () => {
   const [inpval, setINP] = useState({
     course: "",
     trainer_name: "",
+<<<<<<< HEAD
+    date: new Date(),
+    starting_time: "",
+    ending_time: "",
+=======
     //date: new Date(),
     starting_time: 0,
     ending_time: 0,
+>>>>>>> 6fb735daa0973b42ee7e7e5071aed74a5b25e880
     fee_amount: 0,
     disc_amount: 0,
     batch_size: 0,
@@ -34,7 +40,7 @@ const Schedule = () => {
       ending_time,
       fee_amount,
       disc_amount,
-      batch_size,
+      batch_size
     } = inpval
 
     console.log(inpval)
@@ -53,7 +59,7 @@ const Schedule = () => {
         ending_time,
         fee_amount,
         disc_amount,
-        batch_size,
+        batch_size
       })
     })
 
@@ -65,7 +71,7 @@ const Schedule = () => {
         alert('error ')
         console.log('error')
     }else{
-        alert('data added')
+        alert('Schedule added successfully')
     }
   }
 
@@ -81,7 +87,7 @@ const Schedule = () => {
             onChange={setData}
             className="form-control"
             id="validationTooltip01"
-            placeholder="First name"
+            placeholder="Course name"
             required
           />
         </div>
